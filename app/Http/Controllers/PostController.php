@@ -64,4 +64,10 @@ class PostController extends Controller
         ];
         return response($response, 201);
     }
+
+    public function getposts()
+    {
+        $posts = Post::with(['tags'])->get();
+        return $this->handleResponse($posts, 'posts have been retrieved!');
+    }
 }

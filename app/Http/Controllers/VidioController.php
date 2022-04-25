@@ -65,4 +65,9 @@ class VidioController extends Controller
         ];
         return response($response, 201);
     }
+    public function getvidios()
+    {
+        $vidios = Vidio::with(['tags'])->get();
+        return $this->handleResponse($vidios, 'vidios have been retrieved!');
+    }
 }

@@ -10,9 +10,13 @@ class Tag extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function tags()
+    public function posts()
     {
-        return $this->morphToMany('App\Comment', 'taggable');
+        return $this->morphedByMany(Post::class, 'taggable');
     }
-    
+
+    public function vidios()
+    {
+        return $this->morphedByMany(Vidio::class, 'taggable');
+    }
 }
