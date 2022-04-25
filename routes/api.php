@@ -26,4 +26,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/post/createTag', [PostController::class, 'createTag']);
 Route::post('/vidio/createTag', [VidioController::class, 'createTag']);
 
-Route::post('/posts/getTags', [TagController::class, 'gettags']);
+Route::post('/posts/getTags', [TagController::class, 'getPostTags']);
+Route::post('/vidios/getVidioTags', [TagController::class, 'getVidioTags']);

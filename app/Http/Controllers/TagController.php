@@ -42,9 +42,14 @@ class TagController extends Controller
         return response($response, 201);
     }
 
-    public function gettags()
+    public function getPostTags()
     {
         $tags = Tag::with(['Posts'])->get();
+        return $this->handleResponse($tags, 'tag with posts have been retrieved!');
+    }
+    public function getVidioTags()
+    {
+        $tags = Tag::with(['vidios'])->get();
         return $this->handleResponse($tags, 'tag with posts have been retrieved!');
     }
 }
